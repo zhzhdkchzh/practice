@@ -1,0 +1,70 @@
+
+<title>Practice</title>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+jQuery(function($){ 		//id가 foo-table 이라는 table에 적용
+	$("#test-table").DataTable({
+		//dataTables 기능들 사용유무 결정
+		info: false,
+		searching: false,
+		dom : 'Bfrtip',
+		buttons: [ {
+			  extend:    'copy',
+			  text:      '<i class="fa fa-files-o"></i> Copy',
+			  titleAttr: 'Copy'
+		  },
+		  {
+			  extend:    'print',
+			  text:      '<i class="fa fa-print" aria-hidden="true"></i> Print',
+			  titleAttr: 'Print'
+		  },
+		  {
+			  extend:    'excel',
+			  text:      '<i class="fa fa-file-text-o"></i> Excel',
+			  titleAttr: 'Excel'
+		  }]
+	})
+	}); 
+
+	</script>
+
+<div style="width: 800px;">
+<h1 style="text-align: center;">Data Tables Practice</h1>
+<table id="test-table"  class="display" style=" width: 100%;">
+<thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>	<!-- thymeleaf사용하기 때문에 th 속성 사용 -->
+            <tr th:each="tableLst : ${tableLst}">
+                <td th:text="${tableLst.name}"></td>
+                <td th:text="${tableLst.position}"></td>
+                <td th:text="${tableLst.office}"></td>
+                <td th:text="${tableLst.age}"></td>
+                <td th:text="${tableLst.startdate}"></td>
+                <td th:text="'$'+${tableLst.salary}"></td>
+            </tr>
+        </tbody>
+       
+</table>
+</div>
+

@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+
+body {
+	background: rgb(221, 221, 221);
+}
+
+#sideMenu {
+	float: left;
+	position: absolute;
+	left: 65%;
+	top:35%;
+}
+#taable-search{
+	width: 300px;
+	float: left;
+	margin: 5px;	
+}
+#taable-search2{
+	width: 300px;
+	display: inline-block;
+	margin: 5px;
+}
+#taable-search3{
+	width: 300px;
+	display: inline-block;
+	margin: 5px;
+}
+#search{
+	width:auto;
+	margin-left: -400px;
+	position: absolute;
+	left: 40%;
+	background: #F2F2F2;
+	border: 1px solid gray;
+	border-radius: 3px;
+	box-shadow: 3px 3px 3px 3px #999;
+	height: auto;
+	
+}
+#mainMenu {
+	position: absolute;
+	left: 40%;
+	top: 30%;
+	margin-left: -400px;
+	background: #F2F2F2;
+	border: 1px solid gray;
+	border-radius: 3px;
+	box-shadow: 3px 3px 3px 3px #999
+}
+
+#levelMenu{
+	background: #F2F2F2;
+	width: 300px;
+	height: 800px;
+	float: left;
+	margin-left: 20px;
+	border-radius : 5px;
+	box-shadow: 3px 3px 3px 3px #999;
+}
+#xssTest{
+	width: 400px;
+	margin-left: -400px;
+	position: absolute;
+	left: 97%;
+	background: #F2F2F2;
+	border: 1px solid gray;
+	border-radius: 3px;
+	box-shadow: 3px 3px 3px 3px #999;
+	padding: 16px 16px 0 16px;
+
+}

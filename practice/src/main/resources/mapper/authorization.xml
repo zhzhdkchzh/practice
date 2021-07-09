@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace ="com.example.test.repository.CommonRepository">
+<update id="levelUp" parameterType="com.example.test.model.LoginDTO">
+	exec LV_UP 
+	@USER_ID=#{id},
+	@USER_LEVEL=#{level}
+</update>
+<update id="levelDown" parameterType="com.example.test.model.LoginDTO">
+	exec LV_DOWN 
+	@USER_ID=#{id},
+	@USER_LEVEL=#{level}
+</update>
+</mapper>
