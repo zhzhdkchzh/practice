@@ -19,9 +19,8 @@ jQuery(function($){ 		//id가 foo-table 이라는 table에 적용
 	$("#test-table").DataTable({
 		//dataTables 기능들 사용유무 결정
 		info: false,
-		lengthMenu: [10, 20, 30, 40, 50, 60],
 		searching: false,
-		dom : 'Bfltip',
+		dom : 'Bfrtip',
 		buttons: [ {
 			  extend:    'copy',
 			  text:      '<i class="fa fa-files-o"></i> Copy',
@@ -42,12 +41,11 @@ jQuery(function($){ 		//id가 foo-table 이라는 table에 적용
 
 	</script>
 
-<div style="width: 1500px;">
+<div style="width: 800px;">
 <h1 style="text-align: center;">Data Tables Practice</h1>
 <table id="test-table"  class="display" style=" width: 100%;">
 <thead>
             <tr>
-            	<a id="recA"><th style="padding: 0;">REC <input id="allchk" type="checkbox" /></th></a>
                 <th>Name</th>
                 <th>Position</th>
                 <th>Office</th>
@@ -57,8 +55,7 @@ jQuery(function($){ 		//id가 foo-table 이라는 table에 적용
             </tr>
         </thead>
         <tbody>	<!-- thymeleaf사용하기 때문에 th 속성 사용 -->
-            <tr th:each="tableLst : ${searchDataTablesList}">
-            	<td class="chkBox" style="width: 10px; padding-left: 18px; padding-right: 18px;"><input type="checkbox"/> </td>
+            <tr th:each="tableLst : ${tableLst}">
                 <td th:text="${tableLst.name}"></td>
                 <td th:text="${tableLst.position}"></td>
                 <td th:text="${tableLst.office}"></td>
@@ -70,4 +67,4 @@ jQuery(function($){ 		//id가 foo-table 이라는 table에 적용
        
 </table>
 </div>
-<div id="recFrame" th:include="${player}"></div>
+

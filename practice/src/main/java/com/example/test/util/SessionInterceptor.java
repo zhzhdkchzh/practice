@@ -20,7 +20,7 @@ public class SessionInterceptor implements HandlerInterceptor{
 	@Override	
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		logger.info("세션 체크");	
+		logger.info("Session Interceptor ");	
 		LoginDTO userSession = (LoginDTO)SessionUtil.getSessionAttribute("user");	
 		if(userSession == null) {	
 			response.setCharacterEncoding("utf-8");			

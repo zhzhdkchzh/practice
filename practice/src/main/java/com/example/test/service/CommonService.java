@@ -36,7 +36,7 @@ public class CommonService {
 
 			rs = cr.loginProc(loginDTO);
 
-			logger.info(rs + "");
+
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -7,14 +7,13 @@
 	exec GET_TABLE
 </select>
 <select id="getSearchTableList" parameterType="com.example.test.model.DataTablesDTO" resultType="com.example.test.model.DataTablesDTO">
-select * from member
-where 1=1
-<if test="name!=null">and name like '%'+#{name}+'%'</if>
-<if test="position!=null">and position like '%'+#{position}+'%'</if>
-<if test="age!=null">and age like '%'+#{age}+'%'</if>
-<if test="office!=null">and office like '%'+#{office}+'%'</if>
-<if test="startdate!=null">and startdate like '%'+#{startdate}+'%'</if>
-<if test="salary!=null">and salary like '%'+#{salary}+'%'</if>
+	exec GET_SEARCH_DATATABLES
+	@SEARCH_NAME=#{name},
+	@SEARCH_STARTDATE=#{startdate},
+	@SEARCH_AGE=#{age},
+	@SEARCH_POSITION=#{position},
+	@SEARCH_SALARY=#{salary},
+	@SEARCH_OFFICE=#{office}
 	
 </select>
 </mapper>

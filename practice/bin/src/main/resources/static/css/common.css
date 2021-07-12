@@ -14,8 +14,8 @@ body {
 #sideMenu {
 	float: left;
 	position: absolute;
-	left: 30%;
-	top:33%;
+	left: 65%;
+	top:35%;
 }
 #taable-search{
 	width: 300px;
@@ -46,22 +46,15 @@ body {
 }
 #mainMenu {
 	position: absolute;
-	left: 55%;
-	top: 40%;
-	margin-left: -700px;
+	left: 40%;
+	top: 30%;
+	margin-left: -400px;
 	background: #F2F2F2;
 	border: 1px solid gray;
 	border-radius: 3px;
-	box-shadow: 3px 3px 3px 3px #999;
-
+	box-shadow: 3px 3px 3px 3px #999
 }
-#recFrame{
-		background: #F2F2F2;
-	border: 1px solid gray;
-	border-radius: 3px;
-	box-shadow: 3px 3px 3px 3px #999;
 
-}
 #levelMenu{
 	background: #F2F2F2;
 	width: 300px;

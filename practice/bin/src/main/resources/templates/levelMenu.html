@@ -1,0 +1,31 @@
+<style>
+i:hover {
+	color: #90EE90;
+}
+</style>
+<div style="padding-left: 15px; padding-top: 20px;">
+<!-- font awesome 사용으로 i태그로 아이콘을 불러올수있음 class명으로 아이콘과 크기 색상 등 지정가능 -->
+	<i class="all fas fa-angle-double-right fa-2x">ALL</i><br> <i
+		class="all fas fa-angle-double-right fa-2x">ALL</i><br> <i
+		class="all fas fa-angle-double-right fa-2x">ALL</i><br> <br>
+	<br> <i class="manager fas fa-angle-double-right fa-2x">Manager</i><br>
+	<i class="manager fas fa-angle-double-right fa-2x">Manager</i><br>
+	<i class="manager fas fa-angle-double-right fa-2x">Manager</i><br>
+	<br>
+	<br> <i class="leader fas fa-angle-double-right fa-2x">Leader</i><br>
+	<i class="leader fas fa-angle-double-right fa-2x">Leader</i><br> <i
+		class="leader fas fa-angle-double-right fa-2x">Leader</i><br> <br>
+	<br> <i class="director fas fa-angle-double-right fa-2x">Director</i><br>
+	<i class="director fas fa-angle-double-right fa-2x">Director</i><br>
+	<i class="director fas fa-angle-double-right fa-2x">Director</i><br>
+	<br>
+	<br> <i class="chairman fas fa-angle-double-right fa-2x">ChairMan</i><br>
+	<i class="chairman fas fa-angle-double-right fa-2x">ChairMan</i><br>
+	<i class="chairman fas fa-angle-double-right fa-2x">ChairMan</i><br>
+	<div style="text-align: center; padding-top: 20px;">
+		<h4 id="showLevel" th:text="${userLevel}">level</h4>
+		<i id="down" class="fas fa-caret-down fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<i id="up" class="fas fa-caret-up fa-2x"></i>
+	</div>
+	<input id="level" type="hidden" th:value="${level}" />
+</div>

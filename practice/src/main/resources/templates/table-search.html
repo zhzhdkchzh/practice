@@ -1,36 +1,74 @@
+<form id="formId" action="/sendCondition" method="get">
 <div id="taable-search">
 	<div class="input-group mb-3 mt-4">
 		<span class="input-group-text" >Name</span>
-		<input type="text" class="form-control" id="name"  >
+		<input type="text" class="form-control" id="name" name="name" >
 	</div>
 	<div class="input-group mb-3 mt-4">
 		<span class="input-group-text" >Position</span>
-		<input type="text" class="form-control" id="position"  >
+		<select class="form-select" aria-label="Default select example" name="position" style="width: 210px;">
+		 <option value="" style="text-align: center;">>>Select Position<<</option>
+  <option value="Accountant">Accountant</option>
+  <option value="Chief Executive Officer">Chief Executive Officer</option>
+  <option value="Data Coordinator">Data Coordinator</option>
+  <option value="Developer">Developer</option>
+  <option value="Customer Support">Customer Support</option>
+  <option value="Development Lead">Development Lead</option>
+  <option value="Director">Director</option>
+  <option value="Financial Controller">Financial Controller</option>
+  <option value="Integration Specialist">Integration Specialist</option>
+  <option value="Javascript Developer">Javascript Developer</option>
+  <option value="Junior Javascript Developer">Junior Javascript Developer</option>
+  <option value="Junior Technical Author">Junior Technical Author</option>
+  <option value="Marketing Designer">Marketing Designer</option>
+  <option value="Office Manager">Office Manager</option>
+  <option value="Personnel Lead">Personnel Lead</option>
+  <option value="Post-Sales support">Post-Sales support</option>
+  <option value="Pre-Sales Support">Pre-Sales Support</option>
+  <option value="Regional Director">Regional Director</option>
+  <option value="Regional Marketing">Regional Marketing</option>
+  <option value="Sales Assistant">Sales Assistant</option>
+  <option value="Secretary">Secretary</option>
+  <option value="Senior Javascript Developer">Senior Javascript Developer</option>
+  <option value="Senior Marketing Designer">Senior Marketing Designer</option>
+  <option value="Software Engineer">Software Engineer</option>
+  <option value="Support Engineer">Support Engineer</option>
+  <option value="Support Engineer">Support Engineer</option>
+  <option value="Support Lead">Support Lead</option>
+  <option value="System Architect">System Architect</option>
+  <option value="Systems Administrator">Systems Administrator</option>
+  <option value="Team Leader">Team Leader</option>
+  <option value="Technical Author">Technical Author</option>
+          
+
+
+</select>
 	</div>
 </div>
 <div id="taable-search2">
 	<div class="input-group mb-3 mt-4">
 		<span class="input-group-text">Office</span>
-		<input type="text" class="form-control"  id="office"  >
+		<input type="text" class="form-control"  id="office"name="office" >
 	</div>
 	<div class="input-group mb-3 mt-4">
 		<span class="input-group-text" >Age</span>
-		<input type="text" class="form-control" id="age"  >
+		<input type="text" class="form-control" id="age" name="age" >
 	</div>
 </div>
 <div id="taable-search3">
 	<div class="input-group mb-3 mt-4">
 		<span class="input-group-text" >Start date</span>
-		<input type="text" class="form-control" id="date"   >
+		<input type="date" class="form-control" id="date" name="startdate"  >
 	</div>
 	<div class="input-group mb-3 mt-4">
-		<span class="input-group-text">Salary</span>
-		<input type="text" class="form-control"  id="salary"  >
+		<span class="input-group-text">Salary ($)</span>
+		<input type="text" class="form-control"  id="salary" name="salary" >
 	</div>
 </div>
 
 <div class="btn-group-vertical" style="margin-top: -40px; margin-right: 5px;">
-	<a href="/searchTable"><button type="button" id="searchBtn" class="btn btn-primary">Search</button></a>
-	<button type="button" id="beforeBtn" class="btn btn-primary">Before Search</button>
+	<button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
+	<button type="button" id="beforeBtn" class="btn btn-primary">ALL Search</button>
 	<button type="button" id="resetBtn" class="btn btn-primary">Reset</button>
 </div>
+</form>
