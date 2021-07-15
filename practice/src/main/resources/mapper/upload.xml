@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace ="com.example.test.repository.TestMenuRepository">
+<select id="getTable" resultType="com.example.test.model.DataTablesDTO">
+	exec GET_TABLE
+</select>
+<insert id="insertFile" parameterType="com.example.test.model.Testmenu">
+	exec INSERT_FILE
+	@MEMBER_NAME=#{name},
+	@MEMBER_FILENAME=#{fileName}
+</insert>
+</mapper>

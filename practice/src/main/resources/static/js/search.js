@@ -1,6 +1,17 @@
 
 
 $(document).ready(function(){
+	$("#searchBtn").click(function(){
+	if($("#name").val()==''&$("#age").val()==''&$("#date").val()==''&$("#office").val()==''&$("#salary").val()==''){
+		$("#formId").attr("action", "#")
+		alert("do not search");
+	}
+	else{
+		$("#formId").attr("action", "/sendCondition");
+		$("#formId").submit();
+	}
+	})
+	
 	$("#beforeBtn").click(function() {
 		$("#formId").attr("action", "/beforeSearch");
 		$("#formId").submit();
@@ -12,13 +23,9 @@ $(document).ready(function(){
 		$("#office").val("");
 		$("#salary").val("");
 		})
-	$("#allchk").click(function(){
-		if($("#allchk").prop('checked')) {
-				$("input[type=checkbox]").prop('checked',true);
-		}
-		else{
-				$("input[type=checkbox]").prop('checked',false);
-		}
 
-	})		
+	$("#searchBtn").click(function(){
+
+	})
+
 })

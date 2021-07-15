@@ -55,13 +55,13 @@ public class CommonController {
 		int level = commonService.getLevel(dto.getId());	
 		String userLevel = "";	
 		if (level == 1)
-			userLevel = "Manager";
+			userLevel = "L1";
 		else if (level == 2)
-			userLevel = "Leader";
+			userLevel = "L2";
 		else if (level == 3)
-			userLevel = "President";
+			userLevel = "L3";
 		else
-			userLevel = "ChairMan";
+			userLevel = "L4";
 
 		mv.setViewName("index");	
 	
@@ -72,14 +72,7 @@ public class CommonController {
 		mv.addObject("level", level);	
 		mv.addObject("loginId", "Login ID : " + dto.getId());	
 		mv.addObject("userLevel", userLevel);
-		mv.addObject("search", "/table-search");
-		mv.addObject("viewName", "/dataTable");	
-		mv.addObject("xssTest", "/xssTest");
-		mv.addObject("sideMenu", "/sideMenu");
-		mv.addObject("topbar", "/topbar");
-		mv.addObject("levelMenu", "/levelMenu");
-		mv.addObject("player", "/player");
-		
+		mv.addObject("mainFrame", "/mainFrame");
 		session.setAttribute("uml", uml);
 		session.setAttribute("loginId", "Login ID : " + dto.getId());
 		session.setAttribute("userLevel", userLevel);
@@ -94,20 +87,14 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("searchDataTablesList", searchDataTablesList);
 		mv.setViewName("index");
-		mv.addObject("search", "/table-search");
-		mv.addObject("viewName", "/dataTable");	
-		mv.addObject("xssTest", "/xssTest");
-		mv.addObject("sideMenu", "/sideMenu");
-		mv.addObject("topbar", "/topbar");
-		mv.addObject("levelMenu", "/levelMenu");
+		mv.addObject("mainFrame", "/mainFrame");
 		mv.addObject("uml", session.getAttribute("uml"));	
 		mv.addObject("level", session.getAttribute("level"));	
 		mv.addObject("loginId", session.getAttribute("loginId"));	
 		mv.addObject("userLevel", session.getAttribute("userLevel"));
-		mv.addObject("player", "/player");
-		if(session.getAttribute("beforeSearch")!=null) {
-			session.setAttribute("beforeSearch", dataTablesDTO);
-		}
+	
+
+	
 		return mv;
 	}
 	
@@ -120,17 +107,12 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("searchDataTablesList", searchDataTablesList);
 		mv.setViewName("index");
-		mv.addObject("search", "/table-search");
-		mv.addObject("viewName", "/dataTable");	
-		mv.addObject("xssTest", "/xssTest");
-		mv.addObject("sideMenu", "/sideMenu");
-		mv.addObject("topbar", "/topbar");
-		mv.addObject("levelMenu", "/levelMenu");
+		mv.addObject("mainFrame", "/mainFrame");
 		mv.addObject("uml", session.getAttribute("uml"));	
 		mv.addObject("level", session.getAttribute("level"));	
 		mv.addObject("loginId", session.getAttribute("loginId"));	
 		mv.addObject("userLevel", session.getAttribute("userLevel"));
-		mv.addObject("player", "/player");
+
 		return mv;
 	}
 	

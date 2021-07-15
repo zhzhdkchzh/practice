@@ -1,0 +1,70 @@
+
+
+<div id="uploadFrame" th:fragment="mainFrame">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+<script type="text/javascript">
+jQuery(function($){ 
+	$("#dt").DataTable({
+		info: false,
+		lengthChange: false
+	}); 
+}); 
+</script>
+
+<div style="width: 1500px;">
+	<!-- 파일탐색기 Button -->
+	<div class="select-file">
+		<div class="input-group">
+			<input type="file" class="form-control" id="selectWavFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload"/>
+			<button class="btn btn-outline-secondary" type="button" id="insert-btn">Button</button>
+		</div>
+	</div>
+	
+<!-- 	
+	<div class="play-select">
+		<audio id="sample-play"   controls >sample wav</audio>
+	</div>
+	 -->
+	<div class="select-target">
+<table id="dt"   class="table table-bordered" >
+<thead>
+            <tr>
+            	<th >Select</th>
+                <th>Name</th>
+                <th style="width: 200px;">Position</th>
+                <th style="width: 200px;">Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+                <th>File Name</th>
+            </tr>
+        </thead>
+        <tbody>	<!-- thymeleaf사용하기 때문에 th 속성 사용 -->
+            <tr th:each="tableLst : ${tableLst}">
+            	<td style="width: 10px; padding-left: 35px; "><input name="selectMemberName"  th:id="${tableLst.name}" type="checkbox" onclick="doOpenCheck(this);"/></td>
+                <td th:text="${tableLst.name}"></td>
+                <td th:text="${tableLst.position}"></td>
+                <td th:text="${tableLst.office}"></td>
+                <td th:text="${tableLst.age}"></td>
+                <td th:text="${tableLst.startdate}"></td>
+                <td th:text="'$'+${tableLst.salary}"></td>
+                <td th:text="${tableLst.fileName}"></td>
+            </tr>
+        </tbody>
+       
+</table>
+
+	</div>
+	<div id="selectName" style="width: 120%; padding-left: 100%;"></div>
+</div>
+
+</div>

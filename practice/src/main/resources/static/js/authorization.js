@@ -21,25 +21,25 @@ $(document).ready(function() {
 		return;}
 		$.ajax({url: '/levelUp', method: 'POST', async: false, data: { level: $("#level").val() },
 			success: function(data) { switch (data) {
-					case 1: $("#showLevel").text("Manager")+$("#level").val(data)+$("#leader").hide()+$("#director").hide()+$("#chairman").hide();window.location.href="/viewTable";
+					case 1: $("#level").val(data);window.location.href="/viewTable";
 						break;
-					case 2: $("#showLevel").text("Director")+$("#level").val(data)+$("#leader").show()+$("#director").hide()+$("#chairman").hide();window.location.href="/viewTable";
+					case 2: $("#level").val(data);window.location.href="/viewTable";
 						break;
-					case 3: $("#showLevel").text("Leader")+$("#level").val(data)+$("#leader").show()+$("#director").show()+$("#chairman").hide();window.location.href="/viewTable";
+					case 3:$("#level").val(data);window.location.href="/viewTable";
 						break;
-					case 4: $("#showLevel").text("ChairMan")+$("#level").val(data)+$("#leader").show()+$("#director").show()+$("#chairman").show();window.location.href="/viewTable";
+					case 4:$("#level").val(data);window.location.href="/viewTable";
 						break;
 				}}})})
 	$("#down").click(function() {if ($("#level").val() == 1) {alert("최하권한 입니다.")
 			return;}
 		$.ajax({url: '/levelDown', method: 'POST', async: false, data: { level: $("#level").val() },
 			success: function(data) { switch (data) {
-					case 1: $("#showLevel").text("Manager") + $("#level").val(data) + $("#leader").hide() + $("#director").hide() + $("#chairman").hide();window.location.href="/viewTable";
+					case 1: $("#level").val(data) ;window.location.href="/viewTable";
 						break;
-					case 2: $("#showLevel").text("Leader") + $("#level").val(data) + $("#leader").show() + $("#director").hide() + $("#chairman").hide();window.location.href="/viewTable";
+					case 2:  $("#level").val(data);window.location.href="/viewTable";
 						break;
-					case 3: $("#showLevel").text("Director") + $("#level").val(data) + $("#leader").show() + $("#director").show() + $("#chairman").hide();window.location.href="/viewTable";
+					case 3:  $("#level").val(data);window.location.href="/viewTable";
 						break;
-					case 4: $("#showLevel").text("ChairMan") + $("#level").val(data) + $("#leader").show() + $("#director").show() + $("#chairman").show();window.location.href="/viewTable";
+					case 4:  $("#level").val(data);window.location.href="/viewTable";
 						break;
 				}}})})});

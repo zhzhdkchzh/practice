@@ -9,7 +9,7 @@ $(function(){
 				+ "</ul></li>");
 		}
 		if (uml[i].parent == "TestMenu") {
-			$("#TestMenu").append("<li><a class='dropdown-item' id='"+uml[i].mname+"' >" + uml[i].mname + "</a></li> ")
+			$("#TestMenu").append("<li><a class='dropdown-item' href='"+uml[i].url+"' id='"+uml[i].mname+"' >" + uml[i].mname + "</a></li> ")
 
 		}
 		if (uml[i].parent == "Reputation") {

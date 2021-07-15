@@ -15,4 +15,5 @@ public class DataTablesDTO {
 	private String startdate;
 	private String salary;
 	private String dfSalary;
+	private String fileName;
 }
