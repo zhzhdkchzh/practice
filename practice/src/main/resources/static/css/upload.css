@@ -21,7 +21,7 @@
 	box-shadow: 3px 3px 3px 3px #999;
 }
 .select-target{
-	width: 1200px;
+	width: auto;
 	position: absolute;
 	left: 50%;
 	margin-left:-600px;

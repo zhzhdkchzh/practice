@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace ="com.example.test.repository.CommonRepository">
 
-<select id="loginProc" parameterType="com.example.test.model.LoginDTO" resultType="_int">
-	exec LOGIN_PROC 
-	@USER_ID=#{id},
+<select id="loginProc" parameterType="com.example.test.model.LoginDTO" resultType="_int"><!-- 받아오는 데이터는 LoginDTO 반환시킬 데이터 타입은 int -->
+	exec LOGIN_PROC 	<!-- exec = 프로시저 호출 명령어이며 오라클일경우 call 사용 / 호출할 프로시저명 : LOGIN_PROC-->
+	@USER_ID=#{id},	<!-- 프로시저 변수에 받아온데이터 주입 -->
 	@USER_PW=#{pw}
 </select>
 <select id="getLevel" parameterType="string" resultType="_int">

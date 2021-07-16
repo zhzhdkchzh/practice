@@ -54,8 +54,16 @@ public class TestMenuController {
 	}
 	@PostMapping("/uploadFile")
 	@ResponseBody
-	public ResponseEntity<String> Testmenu( Testmenu testmenu){
-		return new ResponseEntity<String>(uploadService.insertFile(testmenu), HttpStatus.OK);
+	public ResponseEntity<String> Testmenu( Testmenu testmenu){	//ResponseEntity<String> 응답데이터 자료형이 String
+		/*
+		 * ResponseEntity는 3종류의 데이터를 반환시킴 (헤더, 바디, 상태코드)
+		 * HttpHeaders headers = new HttpHeaders();
+		 * headers.add("Name", "Value");
+		 * return new ResponseEntity<String>(headers, body에 해당하는 응답데이터, 상태코드);
+		 *  insertFile의 반환되는 데이터가 body에 해당
+		 *  HttpStatus.OK는 상태코드이며 200을 전달
+		*/
+		return new ResponseEntity<String>(uploadService.insertFile(testmenu), HttpStatus.OK);	
 	}
 	
 }

@@ -12,7 +12,8 @@ import com.example.test.model.UserSelectMenu;
 @Repository	
 @Mapper		//DAO의 기능을 위해 두 어노테이션 필수
 public interface CommonRepository {
-
+	//DAO기능을 하는 인터페이스이며 mapper.xml에 네임플레이스로 설정된 경로와 연결됨
+	//mapper는 리소스폴더 아래에 존재해야함
 	int loginProc(LoginDTO loginDTO);	//로그인 정보 비교
 	List<DataTablesDTO> viewTable();	//테이블 출력을위한 메소드
 	int getLevel(String id);			//권한레벨 가져오기

@@ -12,13 +12,14 @@ $(document).ready(function(){
 
 		$.ajax({						//비동기방식 데이터전송
 			url:'/loginProc',	//url 지정
-			method:'POST',		//전송방식
-			data:{				//요청데이터 지정
+			method:'POST',		//전송방식	Post와 Get 방식의 차이는 url에 요청데이터가 담겨져있냐없냐의 차이인데 
+								//get방식은 url에 정보가 담겨져있기 때문에 보안상 취약하지만 캐싱이 가능함
+			data:{				//요청데이터이며 서버로 넘어가는 요청데이터는 json형태로 보내짐 (key: value 형식)
 				id: $("#id").val(),	//id입력값
 				pw: $("#pw").val(),	//pw입력값	
 				rememberId: $('#rememberId').is(':checked')	//id기억하기 체크여부
 			},
-			success: function (data){	//전송 성공시
+			success: function (data){	//통신 성공시	여기서부터 controller에 설정된 요청url과 같은 url을 받는 메소드와 매핑되고 응답데이터를 data로 받아옴
 				console.log(data)	//응답데이터 출력
 				if(data == 1){		//반환받은 데이터가 1일경우 (db조회한 아이디가 있음)
 					window.location.href="/viewTable"	//지정한 url로 이동

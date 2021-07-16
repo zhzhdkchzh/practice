@@ -15,10 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public enum Menu {
-	
+	/*
+	 * enum 클래스가 사용되는 이유는 여러가지 값들에게 동일한 의미를 부여할때 주로 사용됨
+	 * Y(yes, 1, true)
+	 * N(no, 0, false) 
+	 */
 	test("#", "TestMenu", "root", 1 ),
-	test_up("/Up", "level Up", "TestMenu", 1 ),
-	test_down("/Down", "level Down", "TestMenu", 1),
+	test_up("#", "A", "TestMenu", 1 ),
+	test_down("#", "B", "TestMenu", 1),
 	test_test("/upload", "Upload", "TestMenu", 1),
 	test_test2("/download", "Download", "TestMenu", 1),
 	
@@ -35,7 +39,7 @@ public enum Menu {
 	lv_4("#", "L4", "Level", 4);
 	
 
-	private String url;
+	private String url;	//name 설정
 	private String mName;
 	private String parent;
 	private int level;

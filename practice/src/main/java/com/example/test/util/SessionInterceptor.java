@@ -16,17 +16,17 @@ import com.example.test.model.LoginDTO;
 public class SessionInterceptor implements HandlerInterceptor{	
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+	//인터셉터설정을 위한 클래스
 	@Override	
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		logger.info("Session Interceptor ");	
 		LoginDTO userSession = (LoginDTO)SessionUtil.getSessionAttribute("user");	
-		if(userSession == null) {	
+		if(userSession == null) {	//세션정보가 없을경우
 			response.setCharacterEncoding("utf-8");			
 			response.setContentType("text/html; Charset=utf-8");	
 			PrintWriter printwriter = response.getWriter();		
-			
+			//해당 문자열을 보냄
 			printwriter.print("<script>alert('세션이 만료되었습니다.') \ndocument.location.href='/';</script>");
 			printwriter.flush();	
 			printwriter.close(); 

@@ -28,13 +28,13 @@ public class CommonService {
 	private CommonRepository cr;
 
 	public int loginProc(LoginDTO loginDTO) throws Exception {
-		Map<String, String> loginInfo = new HashMap<String, String>();
+		Map<String, String> loginInfo = new HashMap<String, String>();	
 		int rs = 0;
 		try {
 			String pw = sha256.sha256(loginDTO.getId(), loginDTO.getPw()); // 패스워드 암호화를 위한 메소드
-			loginDTO.setPw(pw);
+			loginDTO.setPw(pw);		//sha-256 암호화가된 pw를 대입
 
-			rs = cr.loginProc(loginDTO);
+			rs = cr.loginProc(loginDTO);	//암호화된 데이터를 가지고 DAO 접근
 
 
 		} catch (NoSuchAlgorithmException e) {
@@ -42,7 +42,7 @@ public class CommonService {
 			e.printStackTrace();
 		}
 
-		return rs;
+		return rs;	//결과반환
 	}
 
 	public List<DataTablesDTO> viewTable() { // 출력할 테이블 조회
