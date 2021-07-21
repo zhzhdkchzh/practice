@@ -1,0 +1,46 @@
+<div th:fragment="mainFrame"  >
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"/>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script> 
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+<script type="text/javascript">
+jQuery(function($){ 
+	$("#another").DataTable({
+		info: false,
+		lengthChange: false,
+		paging: false
+	}); 
+}); 
+</script>
+	<div>
+<table id="another"   class="table table-bordered"  style="width: 90%;">
+<thead>
+            <tr>
+                <th style="width: 20%">Name</th>
+  				<th style="width: auto;">Contents</th>
+  				<th style="width: 20%">Time</th>
+  				<th style="width: 2%;"></th>
+            </tr>
+        </thead>
+        <tbody>	
+            <tr th:each="anotherLst : ${anotherLst}">
+                <td th:text="${anotherLst.name}"></td>
+                <td th:text="${anotherLst.contents}"></td>
+                <td th:text="${anotherLst.sendTime}"></td>
+                <td ><i class="fas fa-window-close del-icon" th:id="${anotherLst.idx}"></i></td>
+            </tr>
+        </tbody>
+	       
+</table>
+<div class="input-group mb-3" style="width: 800px;position: absolute; left: 50%; margin-left: -400px;">
+  <input id="writeTxt" type="text" class="form-control cont-val" placeholder="eesiieeejv" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2">SEnd</button>
+</div>
+	</div>
+</div>

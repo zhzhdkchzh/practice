@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace ="com.example.test.repository.CommonRepository">
+<select id="getAnother" resultType="com.example.test.model.Another">
+select * from another
+</select>
+<insert id="sendMsg" parameterType="com.example.test.model.Another">
+insert into another(name, contents, sendtime, idx)
+values(#{name}, #{contents}, getdate(), (SELECT ISNULL(MAX(idx), 0)+1 FROM another))
+</insert>
+<delete id="deleteAnother" parameterType="com.example.test.model.Another">
+delete from another where idx = #{idx}
+</delete>
+</mapper>

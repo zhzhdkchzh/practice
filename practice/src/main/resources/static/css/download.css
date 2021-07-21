@@ -16,7 +16,7 @@
 #parent3{
 	width: 100%;
 	height: 100%;
-	padding: 100px;	
+	padding: 100px 50px 100px 50px;
 }
 #testDiv {
 	position: absolute;
@@ -25,6 +25,7 @@
 	left: 50%;
 	height: 800px;
 	}
-button {
-	margin: 6px;
+.bsBtn{
+	width: 120px;;
+	margin: 10px;
 }

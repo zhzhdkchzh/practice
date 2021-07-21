@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(function(){
 	$(".parent-btn").click(function() {
 		$(".parent-btn").parent().css({ "background": "skyblue" })	//버튼의 부모요소 css수정
@@ -30,9 +27,10 @@ $(document).ready(function(){
 		})
 	})
 	$(".test-btn").click(function(){
-
-		
-	})	
+		OnAjax.getData("/testAjax", "post", JSON.stringify({test: "요청데이터"}), function(result){
+			alert(result.test);
+		})
+	})
 })
 
 

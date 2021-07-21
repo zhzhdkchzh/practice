@@ -13,4 +13,7 @@
 	@USER_ID=#{id},
 	@USER_LEVEL=#{level}
 </update>
+<select id="getJsTree" resultType="com.example.test.model.Jstree">
+select * from jstree
+</select>
 </mapper>

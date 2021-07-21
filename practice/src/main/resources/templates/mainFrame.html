@@ -1,7 +1,15 @@
-<div th:fragment="mainFrame"  >
+<div  th:fragment="mainFrame"  ><i class="fas fa-angle-up fa-2x"id="toggle"></i>
+
+<div id="side-toggle-menu">
+<div id="levelMenu" th:include="/levelMenu"></div>
+<div id="sidetree" th:include="/tree"></div>
+</div>
+<div id="topdiv">
 <div id="search" th:include="/table-search"></div>
+<div id="xssTest" th:include="/xssTest"></div>
+</div>
+<div id="bottomdiv" >
 <div id="sideMenu" th:include="/sideMenu"></div>
 <div id="mainMenu" th:include="/dataTable"></div>
-<div id="xssTest" th:include="/xssTest"></div>
-<div id="levelMenu" th:include="/levelMenu"></div>
+</div>
 </div>

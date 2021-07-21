@@ -19,7 +19,8 @@ public class TestMenuService {
 	}
 	public String insertFile(Testmenu testmenu) {
 		uploadRepository.insertFile(testmenu);
-		return "success";
+		String rs= "success";
+		return rs;
 	}
 
 }

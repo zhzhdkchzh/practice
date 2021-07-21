@@ -21,7 +21,8 @@ public class WebConfiguration implements WebMvcConfigurer{
         .addPathPatterns("/*")		//인터셉터를 적용시킬 url설정
         .excludePathPatterns("/loginProc")	//인터셉터에서 제외시킬 url설정 로그인 전까지는 적용X
         .excludePathPatterns("/")			
-		.excludePathPatterns("/signup");
+        .excludePathPatterns("/signup");
+		
 	}
 
 

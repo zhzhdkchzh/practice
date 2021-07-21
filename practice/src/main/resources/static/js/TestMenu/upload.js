@@ -25,9 +25,14 @@ $(document).on("click", "#insert-btn", function(){
 			alert("do not select member");
 			return;
 		}
-		OnAjax.setAjax("/uploadFile", "POST", {name:$("input:checkbox[name=selectMemberName]:checked").attr('id'), fileName:$("#selectWavFile").val()})
-		var result = OnAjax.getData();
-		location.reload();
+
+		OnAjax.getData("/uploadFile", "POST", JSON.stringify({
+			name:$("input:checkbox[name=selectMemberName]:checked").attr('id'), 
+			fileName:$("#selectWavFile").val()
+			}), function(result){
+				console.log(result);
+				})
+
 
 		
 })

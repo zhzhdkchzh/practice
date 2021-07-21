@@ -5,7 +5,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.example.test.model.Another;
 import com.example.test.model.DataTablesDTO;
+import com.example.test.model.Jstree;
 import com.example.test.model.LoginDTO;
 import com.example.test.model.UserSelectMenu;
 
@@ -21,5 +23,10 @@ public interface CommonRepository {
 	void levelDown(LoginDTO loginDTO);
 	List<UserSelectMenu> getUserMenuList(int level);
 	List<DataTablesDTO> getSearchTableList(DataTablesDTO dataTablesDTO);
+	void signup(LoginDTO loginDTO);
+	List<Another> getAnother();
+	void sendMsg(Another another);
+	void deleteAnother(String idx);
+	List<Jstree> getJsTree();
 
 }

@@ -21,7 +21,7 @@ public enum Menu {
 	 * N(no, 0, false) 
 	 */
 	test("#", "TestMenu", "root", 1 ),
-	test_up("#", "A", "TestMenu", 1 ),
+	test_up("/edit/jstree", "Edit", "TestMenu", 1 ),
 	test_down("#", "B", "TestMenu", 1),
 	test_test("/upload", "Upload", "TestMenu", 1),
 	test_test2("/download", "Download", "TestMenu", 1),

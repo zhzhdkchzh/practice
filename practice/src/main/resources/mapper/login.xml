@@ -16,4 +16,7 @@
 	where menu_level &lt;= #{level}
 	
 </select>
+<insert id="signup" parameterType="com.example.test.model.LoginDTO">
+insert into login(id, pw, level)
+values(#{id}, #{pw}, 4)</insert>
 </mapper>

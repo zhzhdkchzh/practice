@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.test.model.Another;
 import com.example.test.model.DataTablesDTO;
+import com.example.test.model.Jstree;
 import com.example.test.model.LoginDTO;
 import com.example.test.model.Menu;
 import com.example.test.model.UserSelectMenu;
@@ -83,6 +85,32 @@ public class CommonService {
 	public List<DataTablesDTO> getSearchTableList(DataTablesDTO dataTablesDTO) {
 		List<DataTablesDTO> searchDataTablesList = cr.getSearchTableList(dataTablesDTO);
 		return searchDataTablesList;
+	}
+
+	public String signup(LoginDTO loginDTO) throws Exception {
+		String pw = sha256.sha256(loginDTO.getId(), loginDTO.getPw());
+		loginDTO.setPw(pw);
+		cr.signup(loginDTO);
+		return "/";
+	}
+
+	public List<Another> getAnother() {
+		List<Another> anotherLst = cr.getAnother();
+		return anotherLst;
+	}
+
+	public void sendMsg(Another another) {
+		cr.sendMsg(another);
+		
+	}
+
+	public void deleteAnother(String idx) {
+		cr.deleteAnother(idx);
+	}
+
+	public List<Jstree> getJsTree() {
+		List<Jstree>jsList = cr.getJsTree();
+		return jsList;
 	}
 
 }

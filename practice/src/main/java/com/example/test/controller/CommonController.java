@@ -2,6 +2,8 @@ package com.example.test.controller;
 
 
 import java.net.BindException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
@@ -17,11 +20,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.example.test.model.Another;
 import com.example.test.model.DataTablesDTO;
+import com.example.test.model.Jstree;
 import com.example.test.model.LoginDTO;
 import com.example.test.model.Menu;
 import com.example.test.model.UserSelectMenu;
@@ -238,5 +245,50 @@ public class CommonController {
 			
 	}
 	
+	@PostMapping("/signup")
+	@ResponseBody
+	public ResponseEntity<String> signup(LoginDTO loginDTO) throws Exception{
+		return new ResponseEntity<String>(commonService.signup(loginDTO), HttpStatus.OK);
+		
+	}
+	@GetMapping("/another")
+	public ModelAndView another(ModelAndView mv, HttpSession session) {
 
+		List<Another>anotherLst = commonService.getAnother();
+		mv.setViewName("index");
+		mv.addObject("mainFrame", "/another/another");
+		mv.addObject("uml", session.getAttribute("uml"));	
+		mv.addObject("level", session.getAttribute("level"));	
+		mv.addObject("loginId", session.getAttribute("loginId"));	
+		mv.addObject("userLevel", session.getAttribute("userLevel"));
+		mv.addObject("anotherLst", anotherLst);
+		return mv;
+	}
+	@PostMapping("/another/msg")
+	@ResponseBody
+	public ResponseEntity<String> sendMsg(@RequestBody Another another, HttpSession session) throws Exception{
+		LoginDTO dto = (LoginDTO) SessionUtil.getSessionAttribute("user");
+		Date today = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("HH/mm/ss");
+		another.setName(dto.getId());
+		
+		another.setSendTime(format.format(today).toString());
+		logger.info(another.getName());
+		logger.info(another.getContents());
+		logger.info(another.getSendTime());
+		commonService.sendMsg(another);
+	
+		return new ResponseEntity<String>(another.getSendTime(), HttpStatus.OK);
+	}
+	@PostMapping("/another/delete")
+	@ResponseBody
+	public void delete(Another another) {
+		commonService.deleteAnother(another.getIdx());
+	}
+	@PostMapping("/jstree")
+	@ResponseBody
+	public List<Jstree> jstree(){
+		List<Jstree> jsList = commonService.getJsTree();
+		return jsList;
+	}
 }
