@@ -5,7 +5,10 @@ $(document).ready(function() {
 				'data': result
 			},
 			"plugins": ["changed"]
-		})
+		}).bind("loaded.jstree", function () {
+			$('#tree').jstree("open_node", "루키스");
+			})
+
 	});
 });
 

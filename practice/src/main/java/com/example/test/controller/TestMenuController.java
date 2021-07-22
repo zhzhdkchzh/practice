@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.example.test.model.DataTablesDTO;
+import com.example.test.model.Jstree;
 import com.example.test.model.Test;
 import com.example.test.service.TestMenuService;
 
@@ -26,12 +27,12 @@ import com.example.test.service.TestMenuService;
 public class TestMenuController {
 	private static final Logger logger = LoggerFactory.getLogger(TestMenuController.class);
 	@Autowired
-	private TestMenuService uploadService;
+	private TestMenuService testMenuService;
 	
 	@GetMapping("/upload")
 	public ModelAndView upload(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		List<DataTablesDTO> DataTalbeList = uploadService.getTable();
+		List<DataTablesDTO> DataTalbeList = testMenuService.getTable();
 		mv.setViewName("index");
 		mv.addObject("tableLst", DataTalbeList);
 		mv.addObject("mainFrame", "/TestMenu/upload");
@@ -44,7 +45,7 @@ public class TestMenuController {
 	@GetMapping("/download")
 	public ModelAndView download(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		List<DataTablesDTO> DataTalbeList = uploadService.getTable();
+		List<DataTablesDTO> DataTalbeList = testMenuService.getTable();
 		mv.setViewName("index");
 		mv.addObject("tableLst", DataTalbeList);
 		mv.addObject("mainFrame", "/TestMenu/download");
@@ -65,7 +66,7 @@ public class TestMenuController {
 		 *  insertFile의 반환되는 데이터가 body에 해당
 		 *  HttpStatus.OK는 상태코드이며 200을 전달
 		*/
-		String rs = uploadService.insertFile(testmenu);
+		String rs = testMenuService.insertFile(testmenu);
 		return new ResponseEntity<String>(rs, HttpStatus.OK);	
 	}
 	
@@ -88,5 +89,22 @@ public class TestMenuController {
 		mv.addObject("loginId", session.getAttribute("loginId"));	
 		mv.addObject("userLevel", session.getAttribute("userLevel"));
 		return mv;
+	}
+	@PostMapping("/jstree/add")
+	@ResponseBody
+	public void addNode(@RequestBody Jstree jstree) {
+		testMenuService.addNode(jstree);
+	}
+	@PostMapping("/jstree/delete")
+	@ResponseBody
+	public int deleteNode(@RequestBody Jstree jstree) {
+		testMenuService.deleteNode(jstree);
+		return 1;
+	}
+	@PostMapping("/jstree/modify")
+	@ResponseBody
+	public int modifyNode(@RequestBody Jstree jstree) {
+		testMenuService.modifyNode(jstree);
+		return 1;
 	}
 }

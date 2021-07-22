@@ -16,4 +16,5 @@
 <select id="getJsTree" resultType="com.example.test.model.Jstree">
 select * from jstree
 </select>
+
 </mapper>

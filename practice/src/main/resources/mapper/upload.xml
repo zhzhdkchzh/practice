@@ -11,4 +11,14 @@
 	@MEMBER_NAME=#{name},
 	@MEMBER_FILENAME=#{fileName}
 </insert>
+<insert id="addNode" parameterType="com.example.test.model.Jstree">
+insert into jstree(id, parent, text)
+values(#{id}, #{parent}, #{text})
+</insert>
+<insert id="deleteNode" parameterType="com.example.test.model.Jstree">
+delete jstree where id like #{id} + '%'
+</insert>
+<update id="modifyNode" parameterType="com.example.test.model.Jstree">
+update jstree set id = #{parent}, text = #{text} where id= #{id}
+</update>
 </mapper>
